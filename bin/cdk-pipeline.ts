@@ -5,7 +5,8 @@ import { CdkpipelinesDemoPipelineStack } from '../lib/cdk-pipelines-pipeline-sta
 const app = new App();
 
 new CdkpipelinesDemoPipelineStack(app, 'CdkpipelinesDemoPipelineStack', {
-  env: { account: 'admin', region: 'us-east-1' },
+  // no need to create multiple accounts through control tower
+  env: { account: '539460444185', region: 'us-east-1' },
 });
 
 app.synth();
