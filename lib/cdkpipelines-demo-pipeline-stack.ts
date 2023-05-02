@@ -20,7 +20,8 @@ export class CdkpipelinesDemoPipelineStack extends Stack {
               jsonField: 'github-token'
             })
          }),
-         
+         // Update npm before running commands
+         installCommands: ['npm i -g npm@latest'],
          // Install dependencies, build and run cdk synth
          commands: [
            'npm ci',
