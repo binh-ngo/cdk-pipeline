@@ -16,8 +16,8 @@ export class CdkpipelinesDemoPipelineStack extends Stack {
        synth: new ShellStep('Synth', {
          // Where the source can be found
          input: CodePipelineSource.gitHub('binh-ngo/cdk-pipeline', 'main', {
-            authentication: SecretValue.secretsManager('githubToken', {
-              jsonField: 'githubToken'
+            authentication: SecretValue.secretsManager('github-token', {
+              jsonField: 'github-token'
             })
          }),
          
