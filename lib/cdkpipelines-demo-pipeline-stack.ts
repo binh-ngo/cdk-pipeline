@@ -1,5 +1,6 @@
 import { Construct, SecretValue, Stack, StackProps } from '@aws-cdk/core';
 import { CodePipeline, CodePipelineSource, ShellStep } from "@aws-cdk/pipelines";
+import { CdkpipelinesDemoStage } from './cdkpipelines-demo-stage';
 
 /**
  * The stack that defines the application pipeline
@@ -12,24 +13,29 @@ export class CdkpipelinesDemoPipelineStack extends Stack {
       // The pipeline name
       pipelineName: 'MyServicePipeline',
 
-       // How it will be built and synthesized
-       synth: new ShellStep('Synth', {
-         // Where the source can be found
-         input: CodePipelineSource.gitHub('binh-ngo/cdk-pipeline', 'main', {
-            authentication: SecretValue.secretsManager('pipeline-github-token', {
-              jsonField: 'github-token'
-            })
-         }),
-         // Update npm before running commands
-         installCommands: ['npm i -g npm@latest'],
-         // Install dependencies, build and run cdk synth
-         commands: [
-           'npm ci',
-           'npm run build',
-           'npx cdk synth'
-         ],
-       }),
+      // How it will be built and synthesized
+      synth: new ShellStep('Synth', {
+        // Where the source can be found
+        input: CodePipelineSource.gitHub('binh-ngo/cdk-pipeline', 'main', {
+          authentication: SecretValue.secretsManager('pipeline-github-token', {
+            jsonField: 'github-token'
+          })
+        }),
+        // Update npm before running commands
+        installCommands: ['npm i -g npm@latest'],
+        // Install dependencies, build and run cdk synth
+        commands: [
+          'npm ci',
+          'npm run build',
+          'npx cdk synth'
+        ],
+      }),
+
     });
+    // This is where we add the application stages
+    pipeline.addStage(new CdkpipelinesDemoStage(this, 'PreProd', {
+      env: { account: '539460444185', region: 'us-east-1' }
+    }));
 
     // This is where we add the application stages
     // ...
