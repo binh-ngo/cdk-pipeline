@@ -1,14 +1,31 @@
-# Welcome to your CDK TypeScript project
+# Github Pipeline for AWS CDK App
+  
+## Description
+  
+  This is a tutorial on how to create a continuous delivery pipeline that sources your github repo and and deploys the most up to date project whenever you push to github.
+  
+![badge](https://img.shields.io/badge/license--blue)
+## Table of Contents
+  * [Questions](#questions)
+  * [License](#license)
+      
 
-This is a blank project for CDK development with TypeScript.
+        
+  ## Questions
+        
+  *For further questions:*
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
-
-## Useful commands
-
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `cdk deploy`      deploy this stack to your default AWS account/region
-* `cdk diff`        compare deployed stack with current state
-* `cdk synth`       emits the synthesized CloudFormation template
+    Contact me by email, github, or any of my blog sites.
+    
+  *Contact Info:*
+    
+  * GitHub: [binh-ngo](https://github.com/binh-ngo)
+  * Email: [bnngo97@gmail.com](mailto:bnngo97@gmail.com)
+  * Website: [binhngo.me](https://www.binhngo.me)
+      
+  ## License
+        
+  *This application has the MIT License.*
+        
+  For more information please view the [license description]().
+    
