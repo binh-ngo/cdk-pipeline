@@ -12,7 +12,7 @@ new CdkpipelinesDemoPipelineStack(app, 'CdkpipelinesDemoPipelineStack', {
   // --profile 539460444185_AWSAdministratorAccess \                                     = account1-profile 
   // --cloudformation-execution-policies arn:aws:iam::aws:policy/AdministratorAccess \    
   // aws://539460444185/us-east-1                                                          ACCOUNT1
-  env: { account: '539460444185', region: 'us-east-1' },
+  env: { account: 'Account-Number', region: 'your-region-1' },
 });
 
 app.synth();
